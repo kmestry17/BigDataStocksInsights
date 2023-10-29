@@ -6,14 +6,43 @@ This project 📊 focuses on the comprehensive ingestion and analysis of large-s
 
 The project is divided into the following major steps:
 
-VM Setup 🖥️
+### VM Setup 🖥️
 
 This initial step involves setting up the virtual machine (VM) and configuring it for the subsequent data ingestion and analysis tasks. It includes instructions for setting up Hadoop services, changing the Python default interpreter, and installing necessary packages.
 
-Data Ingestion 📥
+- **Hadoop:** Setting up the Hadoop ecosystem for data processing and storage.
+- **Python 2.7:** Changing the default Python interpreter for compatibility.
+- **Pip:** Upgrading the pip package manager for Python.
 
-This step covers the ingestion of data from different sources into HDFS using various methods and tools from the Hadoop ecosystem. It involves direct file transfer, stream ingestion using Apache Flume, and data ingestion using Sqoop.
+### Data Ingestion 📥
 
-Data Analysis 📈
+This step covers the ingestion of data from different sources into HDFS using various methods and tools from the Hadoop ecosystem. It involves direct file transfer, stream ingestion using Apache Flume, Python, and data ingestion using Sqoop.
+
+- **Apache Flume:** Stream ingestion tool for collecting and transferring real-time data.
+- **Python Libraries:** Utilizing various Python libraries such as requests, datetime, json, and socket for data retrieval and transfer.
+- **Sqoop:** Ingesting data from external sources like MySQL directly into Hadoop.
+
+![DataIngestion](images/data_ingest_1.png)
+![DataIngestion](images/data_ingest_2.png)
+![DataIngestion](images/data_ingest_3.png)
+
+![DataIngestion](images/data_ingest_4.png)
+
+![DataIngestion](images/data_ingest_5.png)
+
+
+### Data Analysis 📈
 
 In this step, the ingested data is analyzed using Pig and Hive/Impala to derive valuable insights. The analysis includes tasks such as summarizing the dataset, querying specific information, and extracting meaningful statistics from the data.
+
+- **Pig Latin:** Analyzing large datasets in Hadoop using the Pig tool for data flow and processing.
+- **Hive/Impala:** Querying and analyzing structured data in Hadoop through a SQL-like interface.
+- **MySQL:** Relational database management system for storing and managing structured data.
+
+![DataAnalytics](images/data_analytics_1.png)
+![DataAnalytics](images/data_analytics_2.png)
+![DataAnalytics](images/data_analytics_3.png)
+
+![DataAnalytics](images/data_analytics_4.png)
+
+![DataAnalytics](images/data_analytics_5.png)
