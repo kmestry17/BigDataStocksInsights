@@ -1,0 +1,15 @@
+hdfs dfs -mkdir /project_execute/flume
+
+hdfs dfs -chmod 777 /project_execute/flume
+
+nc -lk 12345
+
+flume-ng agent -n agent -c /etc/flume-ng/conf -f /home/training/project/flume/flume_stock.conf -Dflume.root.logger=INFO,console
+
+python stock_data_collector.py
+
+hdfs dfs -ls /project_execute/flume
+
+hdfs://localhost:8020
+
+https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=8NISV9RSMBT073C1&symbol=IBM&interval=1min

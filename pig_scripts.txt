@@ -1,0 +1,35 @@
+-- Load the data from HDFS
+data = LOAD '/project_execute/blockchain_block_data.csv' USING PigStorage(',') AS (hash:chararray, ver:long, prev_block:chararray, mrkl_root:chararray, time:chararray, bits:long, next_block:chararray, fee:long, nonce:long, n_tx:long, size:long, block_index:long, main_chain:chararray, height:long, weight:long);
+
+-- Question_1
+-- Count the total number of blocks
+total_blocks = GROUP data ALL;
+total_blocks_count = FOREACH total_blocks GENERATE COUNT(data) AS total_blocks_count;
+
+-- Display the total number of blocks
+DUMP total_blocks_count;
+
+-- Question_2
+-- Find the largest block height
+max_height = FOREACH (GROUP data ALL) GENERATE MAX(data.height) AS max_height;
+
+-- Display the largest block height
+DUMP max_height;
+
+--Question_3
+-- Find the largest block height
+largest_block = FOREACH (GROUP data ALL) GENERATE MAX(data.height) AS largest_block_height;
+
+-- Find the corresponding largest block
+largest_block_data = FILTER data BY height == largest_block.largest_block_height;
+
+-- Display the formatted date and time
+formatted_time = FOREACH largest_block_data GENERATE time as formatted_time;
+DUMP formatted_time;
+
+-- Question_4
+-- Find the highest number of transactions
+max_transactions = FOREACH (GROUP data ALL) GENERATE MAX(data.n_tx) AS max_transactions;
+
+-- Display the highest number of transactions
+DUMP max_transactions;
